@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Login and Registration</title>
+        <style>
+            body{
+                font-size: 12px;
+            }
+            .register{
+                width: 500px;
+                
+                display: inline-block;
+                vertical-align: top;
+            }
+
+            .login{
+                width: 500px;
+                
+                display: inline-block;
+                vertical-align: top;
+                margin-left: 30px;
+            }
+
+            .errormsg{
+                color: red;
+            }
+            
+        
+        </style>
+    </head>
+
+    <body>
+
+        <h1>LOGIN AND REGISTRATION</h1>
+         <!-- {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %} -->
+                    <!-- <p class="errormsg">{{ message }}</p> -->
+                    <!-- {% endfor %}
+                {% endif %}
+            {% endwith %} -->
+
+        <div class="register">
+            <form style="display:block" action="/regprocess" method="post">
+                <h2>Register here!</h2>
+
+                First Name:
+                    {% with messages = get_flashed_messages(category_filter=["first_name"]) %}
+                        {% if messages %}
+                            {% for message in messages %}
+                            <p class="errormsg">{{ message }}</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                <input style="display:block; width: 350px; height: 20px" type="text" name="first_name">
+
+                <br>
+
+                Last Name:
+                    {% with messages = get_flashed_messages(category_filter=["last_name"]) %}
+                        {% if messages %}
+                            {% for message in messages %}
+                            <p class="errormsg">{{ message }}</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                <input style="display:block; width: 350px; height: 20px" type="text" name="last_name">
+                
+                <br>
+
+                Email:
+                    {% with messages = get_flashed_messages(category_filter=["email"]) %}
+                        {% if messages %}
+                            {% for message in messages %}
+                            <p class="errormsg">{{ message }}</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </p>
+                <input id="email" name="email" type="text" style="display:block; width: 350px; height: 20px">
+
+                <br>
+
+                Password:
+                    {% with messages = get_flashed_messages(category_filter=["password"]) %}
+                        {% if messages %}
+                            {% for message in messages %}
+                            <p class="errormsg">{{ message }}</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                <input style="display:block; width: 350px; height: 20px" type="password" name="password"></p> 
+
+                <br>
+
+                Confirm Password:
+                    {% with messages = get_flashed_messages(category_filter=["confirm_password"]) %}
+                        {% if messages %}
+                            {% for message in messages %}
+                            <p class="errormsg">{{ message }}</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                <input style="display:block; width: 350px; height: 20px" type="password" name="confirm_password">
+
+                <br>
+
+                <input type="submit" value="REGISTER!" style="background-color: green; color: white; font-size: 10px; border-radius: 5px; padding:5px">
+
+            </form>
+        </div>
+
+        <div class="login">
+            <form style="display:block" action="/loginprocess" method="post"> 
+                <h2>Login here!</h2>
+                <!-- {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %} -->
+                            <!-- <p class="errormsg">{{ message }}</p> -->
+                        <!-- <{% endfor %}
+                    {% endif %}
+                {% endwith %} -->
+
+                Email:<input style="display:block; width: 350px; height: 20px" type="text" name="email">
+                <br>
+                Password:<input style="display:block; width: 350px; height: 20px" type="password" name="password">
+                <br>
+                <input type="submit" value="LOGIN!" style="background-color: green; color: white; font-size: 10px; border-radius: 5px; padding:5px">
+
+            </form>
+        </div>
+        
+    </body>
+</html>
